@@ -1,5 +1,6 @@
 /* mymedia-pills.css — My Media libraries as compact chips.
    Targets .homeLibraryButton, which Jellyfin uses only for these tiles.
+   NOTE: no :has() — Jellyfin Media Player's engine does not support it.
    Part of the Forest/Netflix Jellyfin theme. */
 
 .homeLibraryButton {
@@ -30,9 +31,4 @@
   font-size: .9rem !important;
   color: var(--txt) !important;
   margin: 0 !important;
-}
-.itemsContainer.vertical-wrap:has(> .homeLibraryButton) {
-  display: flex !important;
-  flex-wrap: wrap;
-  gap: 8px;
 }
