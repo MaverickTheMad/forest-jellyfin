@@ -19,10 +19,8 @@
 .skinHeader .headerTop { padding: .15em 1.2em !important; }
 
 /* --- content fades out as it scrolls under the bar --- */
-.skinBody, .mainAnimatedPages {
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent 2.2em, #000 4em);
-  mask-image: linear-gradient(to bottom, transparent 0, transparent 2.2em, #000 4em);
-}
+/* scroll fade removed: masking .skinBody clipped the settings form and
+   forces an expensive compositing layer. Solid glass bar instead. */
 
 /* --- tabs: lifted out of flow and placed inline in the bar ---
    .headerTabs is a SIBLING of .headerTop, so it can only sit inline by
