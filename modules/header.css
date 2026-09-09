@@ -1,0 +1,71 @@
+/* header.css — Top nav: Netflix layout, transparent-to-solid, text wordmark.
+   Part of the Forest/Netflix Jellyfin theme. */
+
+/* TOP NAV: transparent, solidifies on scroll */
+
+.skinHeader {
+  background: transparent !important;
+  backdrop-filter: none;
+  transition: background-color .35s ease, backdrop-filter .35s ease;
+  border: none !important;
+  box-shadow: none !important;
+}
+.skinHeader.headroom--top,
+.skinHeader.semiTransparent {
+  background: linear-gradient(180deg, rgba(11,15,12,.85) 0%, rgba(11,15,12,0) 100%) !important;
+}
+.skinHeader.headroom--not-top,
+.skinHeader-withBackground {
+  background: rgba(11,15,12,.97) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 rgba(199,91,18,.25) !important;
+}
+
+.headerTabs .emby-tab-button,
+.headerRight .headerButton,
+.headerLeft .headerButton {
+  color: var(--txt-dim) !important;
+  transition: color .2s ease;
+}
+.headerTabs .emby-tab-button:hover,
+.headerRight .headerButton:hover { color: var(--txt) !important; }
+.emby-tab-button-active,
+.emby-tab-button.is-active { color: #fff !important; font-weight: 500; }
+.emby-tabs-slider .emby-button.emby-tab-button-active::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+  height: 2px; background: var(--accent);
+}
+/* --- layout: logo + tabs together on the left, icons on the right --- */
+.skinHeader { min-height: 0 !important; }
+.skinHeader .headerTop { padding: .25em 1.4em !important; }
+.skinHeader .headerLeft { align-items: center; }
+.headerTabs, .skinHeader .emby-tabs {
+  margin: 0 auto 0 1.5rem !important;
+  order: 2;
+  flex: 0 1 auto !important;
+  width: auto !important;
+}
+.emby-tabs-slider { justify-content: flex-start !important; }
+.headerRight { order: 3; margin-left: auto; }
+.headerTabs .emby-tab-button {
+  padding: 0 .9em !important;
+  font-size: .92rem !important;
+  min-width: 0 !important;
+}
+.headerButton, .headerRight .paper-icon-button-light {
+  width: 2.3em !important; height: 2.3em !important;
+}
+
+/* --- wordmark: hide the stock Jellyfin logo, use a text mark --- */
+.pageTitleWithLogo,
+img.pageTitleWithLogo,
+.headerLeft .pageTitle { display: none !important; }
+.headerLeft::after {
+  content: "JELLYFIN";              /* change this to whatever you want */
+  color: var(--accent);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  margin-left: .35rem;
+  white-space: nowrap;
+}

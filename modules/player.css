@@ -1,0 +1,11 @@
+/* player.css — Video OSD and sliders.
+   Part of the Forest/Netflix Jellyfin theme. */
+
+/* PLAYER / OSD */
+
+.videoOsdBottom { background: linear-gradient(to top, rgba(11,15,12,.95), transparent) !important; }
+.osdControls .mdl-slider::-webkit-slider-thumb,
+.sliderBubble { background: var(--accent) !important; }
+input[type=range]::-webkit-slider-thumb { background: var(--accent) !important; }
+.mdl-slider__background-lower, .sliderProgress { background: var(--accent) !important; }
+.osdPoster, .osdTitle { color: var(--txt); }

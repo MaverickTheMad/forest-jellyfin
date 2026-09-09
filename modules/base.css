@@ -1,0 +1,21 @@
+/* base.css — Global surfaces, scrollbars, typography.
+   Part of the Forest/Netflix Jellyfin theme. */
+
+/* GLOBAL SURFACES */
+
+.backgroundContainer,
+.backgroundContainer.withBackdrop,
+html, body,
+.skinBody,
+.mainAnimatedPage,
+.dialog,
+.formDialog {
+  background-color: var(--bg-0) !important;
+  color: var(--txt);
+}
+body { font-family: "Netflix Sans","Helvetica Neue",Helvetica,Arial,sans-serif; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--pine-soft); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+::-webkit-scrollbar-track { background: transparent; }

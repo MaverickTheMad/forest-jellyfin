@@ -1,0 +1,16 @@
+/* tokens.css — Color tokens. Edit this file to retheme everything.
+   Part of the Forest/Netflix Jellyfin theme. */
+
+:root {
+  --bg-0:        #080B0A;   /* page, near-black */
+  --bg-1:        #0D1412;   /* raised surface / empty tiles */
+  --bg-2:        #14201C;   /* hover surface */
+  --pine:        #0E2A21;   /* deep cool pine */
+  --pine-soft:   #17392C;
+  --accent:      #C75B12;   /* burnt orange */
+  --accent-hot:  #E06A18;
+  --amber:       #D99A3C;
+  --txt:         #E6EDE9;
+  --txt-dim:     #8FA39A;
+  --hair:        rgba(255,255,255,.09);
+}

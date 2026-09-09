@@ -1,0 +1,22 @@
+/* mediabar.css — Jellyfin Media Bar tinting (only if plugin installed).
+   Part of the Forest/Netflix Jellyfin theme. */
+
+/* JELLYFIN MEDIA BAR (only applies if installed) */
+
+#slides-container { margin-bottom: 1.5rem; }
+#slides-container .slide-backdrop,
+#slides-container .backdrop { filter: saturate(.85) brightness(.72); }
+#slides-container::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(to top, var(--bg-0) 0%, rgba(8,11,10,.45) 38%, transparent 80%),
+    linear-gradient(to right, rgba(14,42,33,.5) 0%, rgba(14,42,33,.1) 40%, transparent 60%);
+}
+#slides-container .button-submit,
+#slides-container .detailButton-icon,
+#slides-container .play-button {
+  background: var(--accent) !important; color: #2A1204 !important;
+}
+#slides-container .dot.active, #slides-container .indicator.active {
+  background: var(--accent) !important;
+}

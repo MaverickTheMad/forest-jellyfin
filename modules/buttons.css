@@ -1,0 +1,26 @@
+/* buttons.css — Buttons and focus states.
+   Part of the Forest/Netflix Jellyfin theme. */
+
+/* BUTTONS */
+
+.button-submit,
+.detailFloatingButton,
+.emby-button.raised.button-submit,
+.btnPlay, .detailButton-icon {
+  background: var(--accent) !important;
+  color: #2A1204 !important;
+  border-radius: 4px !important;
+  font-weight: 500;
+  transition: transform .15s ease, background-color .15s ease;
+}
+.button-submit:hover, .btnPlay:hover {
+  background: var(--accent-hot) !important;
+  transform: scale(1.04);
+}
+.raised:not(.button-submit) {
+  background: rgba(232,237,233,.15) !important;
+  color: var(--txt) !important;
+  border-radius: 4px !important;
+}
+.raised:not(.button-submit):hover { background: rgba(232,237,233,.28) !important; }
+.emby-button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }

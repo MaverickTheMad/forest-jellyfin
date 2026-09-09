@@ -1,0 +1,20 @@
+/* Forest/Netflix theme for Jellyfin — full bundle.
+   Comment out any line below to drop that module. */
+
+@import url('modules/tokens.css');
+@import url('modules/base.css');
+@import url('modules/header.css');
+@import url('modules/drawer.css');
+@import url('modules/hero.css');
+@import url('modules/buttons.css');
+@import url('modules/cards.css');
+@import url('modules/forms.css');
+@import url('modules/player.css');
+@import url('modules/login.css');
+@import url('modules/mediabar.css');
+
+/* --- borrowed, with thanks, from CTalvio/Ultrachromic (MIT) --- */
+.headerUserButtonRound { border-radius: 50px !important; }
+@media (min-aspect-ratio: 1.98/1) {
+  .detailRibbon, .detailPagePrimaryContent, .detailPageContent { padding-left: 6vw !important; }
+}

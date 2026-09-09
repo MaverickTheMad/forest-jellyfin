@@ -1,0 +1,21 @@
+/* forms.css — Panels, inputs, dialogs, links.
+   Part of the Forest/Netflix Jellyfin theme. */
+
+/* PANELS, INPUTS, DIALOGS */
+
+.paperList, .listItem, .card.itemAction, .visualCardBox,
+.formDialogHeader, .formDialogFooter, .dialogContentInner {
+  background-color: var(--bg-1) !important;
+}
+.listItem:hover { background: var(--bg-2) !important; }
+.raised.card, .visualCardBox { box-shadow: inset 0 0 0 1px var(--hair); }
+.emby-input, .emby-textarea, .emby-select {
+  background: var(--bg-2) !important;
+  color: var(--txt) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  border-radius: 4px;
+}
+.emby-input:focus, .emby-select:focus { border-color: var(--accent) !important; }
+.emby-checkbox:checked + span::before { background: var(--accent) !important; }
+a, .textlink { color: var(--amber); }
+a:hover { color: var(--accent-hot); }

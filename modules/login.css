@@ -1,0 +1,11 @@
+/* login.css — Login screen.
+   Part of the Forest/Netflix Jellyfin theme. */
+
+/* LOGIN */
+
+#loginPage .readOnlyContent, .loginContainer {
+  background: rgba(20,36,26,.65) !important;
+  border-radius: 8px;
+  padding: 2rem;
+  backdrop-filter: blur(6px);
+}

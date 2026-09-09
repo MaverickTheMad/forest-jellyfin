@@ -1,0 +1,16 @@
+/* drawer.css — Side drawer.
+   Part of the Forest/Netflix Jellyfin theme. */
+
+/* SIDE DRAWER */
+
+.mainDrawer, .navDrawer, .drawerContent {
+  background: var(--bg-1) !important;
+  border-right: 1px solid rgba(255,255,255,.05);
+}
+.navMenuOption { border-radius: 0 24px 24px 0; margin-right: 12px; }
+.navMenuOption:hover { background: var(--bg-2) !important; }
+.navMenuOption-selected {
+  background: var(--pine) !important;
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+.navMenuOptionIcon { color: var(--accent) !important; }
