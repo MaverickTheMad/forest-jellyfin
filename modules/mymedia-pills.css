@@ -1,42 +1,36 @@
 /* mymedia-pills.css — My Media libraries as small chips instead of big tiles.
+   Scoped to .section0 only. If your My Media row is not section0, change the
+   number, or drop this module's import line.
    Part of the Forest/Netflix Jellyfin theme. */
 
-.homeLibraryButton, .verticalSection .emby-scrollbuttons ~ .itemsContainer .card.backdropCard {
-  max-width: none;
-}
-#homeTab .verticalSection:first-of-type .itemsContainer,
 .section0 .itemsContainer {
   display: flex !important;
   flex-wrap: wrap;
   gap: 8px;
 }
-.section0 .card, #homeTab .verticalSection:first-of-type .card {
+.section0 .card {
   width: auto !important;
   min-width: 0 !important;
   padding: 0 !important;
 }
-.section0 .cardBox, #homeTab .verticalSection:first-of-type .cardBox {
+.section0 .card:hover { transform: none !important; }
+.section0 .cardBox {
   background: rgba(255,255,255,.06) !important;
   border: 1px solid var(--hair);
   border-radius: 6px;
   padding: .45em 1.1em !important;
   transition: background-color .2s ease, border-color .2s ease;
 }
-.section0 .cardBox:hover, #homeTab .verticalSection:first-of-type .cardBox:hover {
+.section0 .cardBox:hover {
   background: rgba(255,255,255,.12) !important;
   border-color: var(--accent);
 }
-.section0 .cardImageContainer, .section0 .cardPadder,
-#homeTab .verticalSection:first-of-type .cardImageContainer,
-#homeTab .verticalSection:first-of-type .cardPadder {
-  display: none !important;
-}
-.section0 .cardText, #homeTab .verticalSection:first-of-type .cardText {
+.section0 .cardImageContainer,
+.section0 .cardPadder,
+.section0 .cardScalable { display: none !important; }
+.section0 .cardText {
   color: var(--txt) !important;
   font-size: .85rem !important;
   text-align: center;
   margin: 0 !important;
-}
-.section0 .card:hover, #homeTab .verticalSection:first-of-type .card:hover {
-  transform: none !important;
 }
