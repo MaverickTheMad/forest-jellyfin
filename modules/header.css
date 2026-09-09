@@ -20,28 +20,34 @@
 
 /* --- content fades out as it scrolls under the bar --- */
 .skinBody, .mainAnimatedPages {
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent 3.2em, #000 5.4em);
-  mask-image: linear-gradient(to bottom, transparent 0, transparent 3.2em, #000 5.4em);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent 2.2em, #000 4em);
+  mask-image: linear-gradient(to bottom, transparent 0, transparent 2.2em, #000 4em);
 }
 
-/* --- tabs: readable, aligned with page content, sitting on the same glass --- */
-.headerTabs {
+/* --- tabs: lifted out of flow and placed inline in the bar ---
+   .headerTabs is a SIBLING of .headerTop, so it can only sit inline by
+   being positioned over it. --- */
+.skinHeader { position: relative; }
+.headerTabs.sectionTabs {
+  position: absolute !important;
+  top: 0; left: 13.5em;
+  height: 100%;
+  display: flex;
+  align-items: center;
   background: transparent !important;
-  padding-left: 1.2em !important;
+  padding: 0 !important;
+  z-index: 2;
+}
+.headerTabs .emby-tabs, .headerTabs .emby-tabs-slider {
+  display: flex; align-items: center;
 }
 .emby-tabs-slider { justify-content: flex-start !important; }
 .headerTabs .emby-tab-button {
-  padding: .35em 1.1em !important;
-  font-size: 1rem !important;
+  padding: 0 1.1em !important;
+  font-size: .95rem !important;
   min-width: 0 !important;
-  opacity: .6;
+  opacity: .62;
   transition: opacity .2s ease;
-}
-.headerTabs .emby-tab-button:hover { opacity: 1; }
-.emby-tab-button-active, .emby-tab-button.is-active {
-  opacity: 1 !important;
-  color: #fff !important;
-  font-weight: 500;
 }
 
 /* --- right-side icons --- */
@@ -53,6 +59,7 @@
 
 /* --- wordmark: stock logo out, text mark in --- */
 .pageTitleWithLogo, img.pageTitleWithLogo, .headerLeft .pageTitle { display: none !important; }
+.headerLeft { position: relative; }
 .headerLeft::after {
   content: "JELLYFIN";              /* change to whatever you want */
   color: var(--accent);
