@@ -35,6 +35,15 @@ a line to drop that piece.
 | `player.css` | Video OSD |
 | `login.css` | Login screen |
 | `mediabar.css` | Tints Jellyfin Media Bar (no-op without the plugin) |
+| `tv-tuning.css` | px sizing for TV distance. Must load last. |
+
+## Gotchas
+
+Never set a background on `.mainAnimatedPage` — it wraps the video player and
+an opaque color there covers playback completely.
+
+Avoid `mask-image` on `.skinBody` — it clips the settings form and forces an
+expensive compositing layer.
 
 ## Customizing
 
