@@ -19,36 +19,41 @@
   overflow: visible;
   transition: box-shadow .28s ease;
 }
-.cardImageContainer, .cardPadder {
+/* Artwork is a background-image on .cardImageContainer.
+   NOTE: the overlay contains a SECOND, empty .cardImageContainer. Never give
+   .cardImageContainer a blanket background — it paints over the poster on
+   hover. Only the .coveredImage one holds art. */
+.cardPadder { border-radius: 6px; background: var(--bg-1); }
+.cardImageContainer.coveredImage {
   border-radius: 6px;
-  background: var(--bg-1);
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,.5);
 }
-.cardImageContainer {
-  box-shadow: 0 2px 8px rgba(0,0,0,.5), inset 0 0 0 1px var(--hair);
+.cardOverlayContainer .cardImageContainer {
+  background: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
 }
-/* empty / no-artwork tiles: near-black with a hairline, faded icon */
-.cardImageContainer.defaultCardBackground,
-.cardImageContainer[class*="defaultCardBackground"],
-.cardContent-shadow, .cardImage-img:not([src]) {
-  background: var(--bg-1) !important;
-  box-shadow: inset 0 0 0 1px var(--hair) !important;
-}
-.cardImageIcon, .cardImageContainer > .material-icons {
-  color: rgba(230,237,233,.22) !important;
-}
+.cardScalable, .cardPadder { overflow: hidden !important; }
+
+/* empty / no-artwork tiles */
+.cardImageIcon { color: rgba(230,237,233,.22) !important; }
 
 .card:hover { transform: scale(1.07); z-index: 30; }
-.card:hover .cardImageContainer {
+.card:hover .cardImageContainer.coveredImage {
   box-shadow: 0 10px 26px rgba(0,0,0,.75), 0 0 0 1px rgba(199,91,18,.6);
 }
-/* hover overlay: only a bottom scrim, never a solid block over the art */
+
+/* hover overlay: bottom scrim only */
 .cardOverlayContainer {
-  background: linear-gradient(to top, rgba(8,11,10,.85) 0%, rgba(8,11,10,.25) 38%, transparent 62%) !important;
+  background-color: transparent !important;
+  background-image: linear-gradient(to top, rgba(8,11,10,.88) 0%, rgba(8,11,10,.2) 40%, transparent 66%) !important;
   border-radius: 6px;
 }
-.cardOverlayContainer::before, .cardOverlayContainer::after { background: none !important; }
-.cardContent-shadow { background: none !important; }
 .cardOverlayButton-br { bottom: .4em; right: .4em; }
+
 .cardOverlayButton-br .cardOverlayFab-primary,
 .cardOverlayButton { background: var(--accent) !important; color: #2A1204 !important; }
 .cardText { color: var(--txt-dim); font-size: .86rem; }
