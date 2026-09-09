@@ -1,9 +1,11 @@
 /* Forest/Netflix theme for Jellyfin — full bundle.
-   Comment out any line below to drop that module. */
+   Comment out any line below to drop that module.
+   tv-tuning.css must stay last: it overrides sizing for TV viewing. */
 
 @import url('modules/tokens.css');
 @import url('modules/base.css');
 @import url('modules/header.css');
+@import url('modules/mymedia-pills.css');
 @import url('modules/drawer.css');
 @import url('modules/hero.css');
 @import url('modules/buttons.css');
@@ -12,6 +14,7 @@
 @import url('modules/player.css');
 @import url('modules/login.css');
 @import url('modules/mediabar.css');
+@import url('modules/tv-tuning.css');
 
 /* --- borrowed, with thanks, from CTalvio/Ultrachromic (MIT) --- */
 .headerUserButtonRound { border-radius: 50px !important; }
