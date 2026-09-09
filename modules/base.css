@@ -1,3 +1,5 @@
+/* NOTE: .mainAnimatedPage must NOT get a background — it wraps the video
+   player, and an opaque color there covers playback entirely. */
 /* base.css — Global surfaces, scrollbars, typography.
    Part of the Forest/Netflix Jellyfin theme. */
 
@@ -7,7 +9,6 @@
 .backgroundContainer.withBackdrop,
 html, body,
 .skinBody,
-.mainAnimatedPage,
 .dialog,
 .formDialog {
   background-color: var(--bg-0) !important;
