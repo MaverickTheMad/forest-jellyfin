@@ -39,6 +39,11 @@ a line to drop that piece.
 
 ## Gotchas
 
+Never use `!important` on `html`/`body` backgrounds. Jellyfin Media Player
+renders video *behind* the web view and clears the page background during
+playback; an `!important` background covers the picture entirely. This only
+shows up in JMP, never in a browser.
+
 Never set a background on `.mainAnimatedPage` — it wraps the video player and
 an opaque color there covers playback completely.
 
