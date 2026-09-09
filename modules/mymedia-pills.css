@@ -1,36 +1,38 @@
-/* mymedia-pills.css — My Media libraries as small chips instead of big tiles.
-   Scoped to .section0 only. If your My Media row is not section0, change the
-   number, or drop this module's import line.
+/* mymedia-pills.css — My Media libraries as compact chips.
+   Targets .homeLibraryButton, which Jellyfin uses only for these tiles.
    Part of the Forest/Netflix Jellyfin theme. */
 
-.section0 .itemsContainer {
-  display: flex !important;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.section0 .card {
+.homeLibraryButton {
   width: auto !important;
   min-width: 0 !important;
-  padding: 0 !important;
-}
-.section0 .card:hover { transform: none !important; }
-.section0 .cardBox {
+  flex: 0 0 auto !important;
+  display: inline-flex !important;
+  align-items: center;
+  gap: .55em;
+  margin: 0 !important;
+  padding: .55em 1.2em !important;
   background: rgba(255,255,255,.06) !important;
   border: 1px solid var(--hair);
   border-radius: 6px;
-  padding: .45em 1.1em !important;
+  box-shadow: none !important;
   transition: background-color .2s ease, border-color .2s ease;
 }
-.section0 .cardBox:hover {
-  background: rgba(255,255,255,.12) !important;
+.homeLibraryButton:hover, .homeLibraryButton:focus-visible {
+  background: rgba(255,255,255,.13) !important;
   border-color: var(--accent);
 }
-.section0 .cardImageContainer,
-.section0 .cardPadder,
-.section0 .cardScalable { display: none !important; }
-.section0 .cardText {
-  color: var(--txt) !important;
-  font-size: .85rem !important;
-  text-align: center;
+.homeLibraryIcon {
+  font-size: 1.15em !important;
+  color: var(--accent) !important;
   margin: 0 !important;
+}
+.homeLibraryText {
+  font-size: .9rem !important;
+  color: var(--txt) !important;
+  margin: 0 !important;
+}
+.itemsContainer.vertical-wrap:has(> .homeLibraryButton) {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 8px;
 }
