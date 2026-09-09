@@ -59,7 +59,7 @@
 .pageTitleWithLogo, img.pageTitleWithLogo, .headerLeft .pageTitle { display: none !important; }
 .headerLeft { position: relative; }
 .headerLeft::after {
-  content: "JELLYFIN";              /* change to whatever you want */
+  content: "IzukiTV";              /* change to whatever you want */
   color: var(--accent);
   font-size: 1.05rem;
   font-weight: 500;
