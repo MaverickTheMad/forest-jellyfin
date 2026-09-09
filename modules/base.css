@@ -5,13 +5,21 @@
 
 /* GLOBAL SURFACES */
 
+/* IMPORTANT — do NOT use !important on html/body backgrounds.
+   Jellyfin Media Player renders video BEHIND the web view and clears the page
+   background during playback. An !important body background covers the picture
+   entirely (audio and controls still work). Same reason .mainAnimatedPage must
+   stay unstyled. Browsers are unaffected, so this only shows up in JMP. */
+html, body {
+  background-color: var(--bg-0);
+  color: var(--txt);
+}
 .backgroundContainer,
 .backgroundContainer.withBackdrop,
-html, body,
 .skinBody,
 .dialog,
 .formDialog {
-  background-color: var(--bg-0) !important;
+  background-color: var(--bg-0);
   color: var(--txt);
 }
 body { font-family: "Netflix Sans","Helvetica Neue",Helvetica,Arial,sans-serif; }
