@@ -20,3 +20,31 @@
 #slides-container .dot.active, #slides-container .indicator.active {
   background: var(--accent) !important;
 }
+
+/* --- roomier metadata + controls in the featured bar --- */
+#slides-container .rating, #slides-container .mediaInfoItem,
+#slides-container .genres, #slides-container .misc-info,
+#slides-container .featured-content-info {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  letter-spacing: .2px;
+}
+#slides-container .misc-info > *, #slides-container .genres > * {
+  margin-right: .85em !important;
+}
+#slides-container .overview, #slides-container .plot {
+  font-size: 1.02rem !important;
+  line-height: 1.65 !important;
+  max-width: 46ch;
+  margin-top: .9em !important;
+}
+#slides-container .button-container,
+#slides-container .featured-buttons { gap: .8em !important; margin-top: 1.6em !important; }
+#slides-container .button-container button,
+#slides-container .featured-buttons button,
+#slides-container .play-button, #slides-container .detailButton {
+  padding: .65em 1.6em !important;
+  font-size: 1rem !important;
+  border-radius: 5px !important;
+}
+#slides-container .logo, #slides-container .featured-logo { margin-bottom: 1.2em !important; }
