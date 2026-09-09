@@ -1,0 +1,73 @@
+/* tv-tuning.css — Desktop / TV sizing pass. Absolute px so nothing
+   inherits client font scaling. Must load LAST.
+   Part of the Forest/Netflix Jellyfin theme. */
+
+/* --- top bar --- */
+.skinHeader .headerTop { padding: 6px 22px !important; }
+.headerTabs.sectionTabs { left: 190px !important; }
+.headerTabs .emby-tab-button {
+  font-size: 17px !important;
+  padding: 0 20px !important;
+  opacity: .6;
+}
+.emby-tab-button-active { opacity: 1 !important; }
+.headerLeft::after { font-size: 20px !important; letter-spacing: 3px !important; }
+.headerRight .paper-icon-button-light, .headerButton {
+  width: 42px !important; height: 42px !important;
+}
+.headerRight .material-icons, .headerLeft .material-icons { font-size: 24px !important; }
+
+/* --- featured bar: metadata --- */
+#slides-container .misc-info {
+  display: flex !important; align-items: center !important;
+  gap: 14px !important;
+  font-size: 18px !important;
+}
+#slides-container .misc-info .separator-icon,
+#slides-container .genre .separator-icon {
+  font-size: 7px !important; opacity: .45 !important; margin: 0 4px !important;
+}
+#slides-container .star-rating-container,
+#slides-container .critic-rating { gap: 7px !important; font-size: 18px !important; }
+#slides-container .community-rating-star { font-size: 20px !important; }
+#slides-container .age-rating {
+  font-size: 15px !important; padding: 3px 10px !important;
+  border: 1px solid rgba(255,255,255,.22) !important; border-radius: 3px !important;
+}
+#slides-container .genre {
+  display: flex !important; align-items: center !important;
+  gap: 10px !important; margin-top: 16px !important;
+  font-size: 17px !important;
+}
+#slides-container .featured-content {
+  font-size: 13px !important; letter-spacing: 2px !important;
+}
+
+/* --- featured bar: plot + logo --- */
+#slides-container .plot {
+  font-size: 19px !important; line-height: 1.6 !important;
+  max-width: 640px !important;
+}
+#slides-container .plot-container { margin-top: 20px !important; }
+#slides-container .logo-container { margin-bottom: 26px !important; }
+#slides-container .logo { max-height: 190px !important; max-width: 620px !important; }
+
+/* --- featured bar: buttons --- */
+#slides-container .button-container { gap: 14px !important; margin-top: 32px !important; }
+#slides-container .play-button {
+  font-size: 18px !important; padding: 13px 36px !important; border-radius: 5px !important;
+}
+#slides-container .detail-button, #slides-container .favorite-button {
+  width: 54px !important; height: 54px !important;
+}
+#slides-container .dot { width: 9px !important; height: 9px !important; }
+
+/* --- library chips --- */
+.homeLibraryButton { padding: 11px 22px !important; gap: 10px !important; }
+.homeLibraryText { font-size: 17px !important; }
+.homeLibraryIcon { font-size: 21px !important; }
+
+/* --- rows --- */
+.sectionTitle, .sectionTitle-cards { font-size: 24px !important; }
+.cardText { font-size: 15px !important; }
+.cardText-first { font-size: 16px !important; }
