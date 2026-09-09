@@ -1,71 +1,68 @@
-/* header.css — Top nav: Netflix layout, transparent-to-solid, text wordmark.
+/* header.css — Top nav: compact, glassy, tabs inline. Text wordmark.
    Part of the Forest/Netflix Jellyfin theme. */
 
-/* TOP NAV: transparent, solidifies on scroll */
-
+/* --- the bar itself: never solid, just a soft glass panel --- */
 .skinHeader {
-  background: transparent !important;
-  backdrop-filter: none;
-  transition: background-color .35s ease, backdrop-filter .35s ease;
+  background: rgba(8,11,10,.55) !important;
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
   border: none !important;
   box-shadow: none !important;
+  min-height: 0 !important;
+  transition: background-color .3s ease;
 }
 .skinHeader.headroom--top,
-.skinHeader.semiTransparent {
-  background: linear-gradient(180deg, rgba(11,15,12,.85) 0%, rgba(11,15,12,0) 100%) !important;
-}
+.skinHeader.semiTransparent { background: rgba(8,11,10,.28) !important; }
 .skinHeader.headroom--not-top,
-.skinHeader-withBackground {
-  background: rgba(11,15,12,.97) !important;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 1px 0 rgba(199,91,18,.25) !important;
+.skinHeader-withBackground { background: rgba(8,11,10,.78) !important; }
+
+.skinHeader .headerTop { padding: .15em 1.2em !important; }
+
+/* --- content fades out as it scrolls under the bar --- */
+.skinBody, .mainAnimatedPages {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent 2.6em, #000 4.6em);
+  mask-image: linear-gradient(to bottom, transparent 0, transparent 2.6em, #000 4.6em);
 }
 
-.headerTabs .emby-tab-button,
-.headerRight .headerButton,
-.headerLeft .headerButton {
-  color: var(--txt-dim) !important;
-  transition: color .2s ease;
-}
-.headerTabs .emby-tab-button:hover,
-.headerRight .headerButton:hover { color: var(--txt) !important; }
-.emby-tab-button-active,
-.emby-tab-button.is-active { color: #fff !important; font-weight: 500; }
-.emby-tabs-slider .emby-button.emby-tab-button-active::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: 0;
-  height: 2px; background: var(--accent);
-}
-/* --- layout: logo + tabs together on the left, icons on the right --- */
-.skinHeader { min-height: 0 !important; }
-.skinHeader .headerTop { padding: .25em 1.4em !important; }
-.skinHeader .headerLeft { align-items: center; }
-.headerTabs, .skinHeader .emby-tabs {
-  margin: 0 auto 0 1.5rem !important;
-  order: 2;
-  flex: 0 1 auto !important;
+/* --- tabs: inline in the bar, centered, small --- */
+.headerTabs {
+  position: static !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  background: transparent !important;
   width: auto !important;
+  flex: 1 1 auto !important;
 }
-.emby-tabs-slider { justify-content: flex-start !important; }
-.headerRight { order: 3; margin-left: auto; }
+.emby-tabs-slider { justify-content: center !important; }
 .headerTabs .emby-tab-button {
-  padding: 0 .9em !important;
-  font-size: .92rem !important;
+  padding: 0 1em !important;
+  font-size: .88rem !important;
   min-width: 0 !important;
+  opacity: .65;
+  transition: opacity .2s ease;
 }
-.headerButton, .headerRight .paper-icon-button-light {
-  width: 2.3em !important; height: 2.3em !important;
+.headerTabs .emby-tab-button:hover { opacity: 1; }
+.emby-tab-button-active, .emby-tab-button.is-active {
+  opacity: 1 !important;
+  color: #fff !important;
+  font-weight: 500;
 }
 
-/* --- wordmark: hide the stock Jellyfin logo, use a text mark --- */
-.pageTitleWithLogo,
-img.pageTitleWithLogo,
-.headerLeft .pageTitle { display: none !important; }
+/* --- right-side icons --- */
+.headerRight .paper-icon-button-light, .headerButton {
+  width: 2.2em !important; height: 2.2em !important;
+  color: var(--txt-dim) !important;
+}
+.headerRight .paper-icon-button-light:hover { color: var(--txt) !important; }
+
+/* --- wordmark: stock logo out, text mark in --- */
+.pageTitleWithLogo, img.pageTitleWithLogo, .headerLeft .pageTitle { display: none !important; }
 .headerLeft::after {
-  content: "JELLYFIN";              /* change this to whatever you want */
+  content: "JELLYFIN";              /* change to whatever you want */
   color: var(--accent);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 500;
   letter-spacing: 2.5px;
-  margin-left: .35rem;
+  margin-left: .4rem;
   white-space: nowrap;
 }
