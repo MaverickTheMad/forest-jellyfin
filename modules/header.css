@@ -20,25 +20,21 @@
 
 /* --- content fades out as it scrolls under the bar --- */
 .skinBody, .mainAnimatedPages {
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent 2.6em, #000 4.6em);
-  mask-image: linear-gradient(to bottom, transparent 0, transparent 2.6em, #000 4.6em);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent 3.2em, #000 5.4em);
+  mask-image: linear-gradient(to bottom, transparent 0, transparent 3.2em, #000 5.4em);
 }
 
-/* --- tabs: inline in the bar, centered, small --- */
+/* --- tabs: readable, aligned with page content, sitting on the same glass --- */
 .headerTabs {
-  position: static !important;
-  margin: 0 auto !important;
-  padding: 0 !important;
   background: transparent !important;
-  width: auto !important;
-  flex: 1 1 auto !important;
+  padding-left: 1.2em !important;
 }
-.emby-tabs-slider { justify-content: center !important; }
+.emby-tabs-slider { justify-content: flex-start !important; }
 .headerTabs .emby-tab-button {
-  padding: 0 1em !important;
-  font-size: .88rem !important;
+  padding: .35em 1.1em !important;
+  font-size: 1rem !important;
   min-width: 0 !important;
-  opacity: .65;
+  opacity: .6;
   transition: opacity .2s ease;
 }
 .headerTabs .emby-tab-button:hover { opacity: 1; }
