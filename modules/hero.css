@@ -52,3 +52,11 @@
 
 /* --- media info selects --- */
 .selectContainer { max-width: 560px; }
+
+/* --- no giant poster once you're already inside the item --- */
+.detailImageContainer,
+.detailPagePrimaryContainer > .detailImageContainer,
+.detailImageContainer .card,
+.itemBackdrop + .detailImageContainer { display: none !important; }
+.detailPagePrimaryContent, .detailPageContent { margin-left: 0 !important; }
+.detailPageSecondaryContainer, .detailRibbon { padding-left: 4vw !important; }
