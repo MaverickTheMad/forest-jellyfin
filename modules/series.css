@@ -1,0 +1,223 @@
+/* series.css — Series and movie detail pages.
+   Built iteratively against JMP; the numbers here were tuned by eye.
+
+   Layout: centered logo over a short backdrop, full-width ribbon with
+   labeled action buttons, then a three-column body —
+     metadata | poster | Next Up
+   with Seasons spanning the full width beneath.
+
+   Gotchas:
+   - .detailImageContainer is hidden by Jellyfin AND contains an inner .card
+     that must be unhidden separately, or the poster stays invisible.
+   - The poster is absolutely positioned; `top` is a fixed px offset because
+     `top: 100%` resolves differently on movies vs series.
+   - gap on .mainDetailButtons is overridden by Jellyfin; use margins.
+   - .detailButton.hide must stay hidden — a blanket display rule reveals
+     a dozen inactive buttons.
+   - episodes.css zeroes the padding on .detailPagePrimaryContent, so this
+     module must load AFTER it in theme.css or the left padding is lost.
+   - Season pages have no Next Up (Jellyfin only renders it on the series
+     page). The poster still needs to clear the episode grid there, hence
+     the margin-top on #listChildrenCollapsible.
+   Part of the Forest/Netflix Jellyfin theme. */
+
+/* ---------- logo ---------- */
+.detailLogo {
+  position: absolute !important;
+  top: 60px !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  width: 520px !important;
+  height: 150px !important;
+  background-size: contain !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  margin: 0 !important;
+  z-index: 1 !important;
+}
+.detailPageWrapperContainer { padding-top: 0 !important; }
+.detailPagePrimaryContainer {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.itemBackdrop { height: 240px !important; min-height: 0 !important; }
+
+/* ---------- ribbon ---------- */
+.detailRibbon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 18px 4vw !important;
+  margin-top: 0 !important;
+}
+.detailRibbon .infoWrapper { flex: 0 1 auto !important; }
+.detailRibbon .detailImageContainer { display: none !important; }
+
+/* ---------- ribbon buttons ---------- */
+.detailRibbon .mainDetailButtons {
+  display: flex !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  justify-content: flex-end !important;
+}
+.mainDetailButtons .detailButton {
+  display: inline-flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  width: auto !important;
+  min-width: 0 !important;
+  height: 62px !important;
+  padding: 0 22px !important;
+  margin: 0 6px !important;
+  border-radius: 6px !important;
+  background: rgba(255,255,255,.12) !important;
+  transition: background-color .2s ease;
+}
+.mainDetailButtons .detailButton:first-child { margin-left: 0 !important; }
+.mainDetailButtons .detailButton:last-child  { margin-right: 0 !important; }
+.mainDetailButtons .detailButton:hover { background: rgba(255,255,255,.24) !important; }
+.mainDetailButtons .detailButton.hide { display: none !important; }
+
+.mainDetailButtons .detailButton-content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important; height: auto !important;
+  margin: 0 !important; padding: 0 !important;
+  line-height: 1 !important;
+}
+.mainDetailButtons .detailButton-icon {
+  display: block !important;
+  background: none !important;
+  color: var(--txt) !important;
+  font-size: 22px !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+/* labels come from each button's title attribute */
+.mainDetailButtons .detailButton::after {
+  content: attr(title);
+  display: block !important;
+  color: var(--txt);
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  text-align: center !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+}
+.mainDetailButtons .btnPlay {
+  padding: 0 28px !important;
+  background: var(--accent) !important;
+}
+.mainDetailButtons .btnPlay:hover { background: var(--accent-hot) !important; }
+.mainDetailButtons .btnPlay .detailButton-icon { color: #2A1204 !important; }
+.mainDetailButtons .btnPlay::after { color: #2A1204; }
+
+/* ---------- body: three columns ---------- */
+.detailPagePrimaryContent {
+  padding-left: 4vw !important;
+  padding-right: 4vw !important;
+  box-sizing: border-box !important;
+}
+.detailPageContent,
+.detailPagePrimaryContent,
+.detailSection,
+.detailPageSecondaryContainer {
+  max-width: none !important;
+  width: auto !important;
+  box-sizing: border-box !important;
+}
+.detailPagePrimaryContent > .detailSection {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 240px minmax(0, 1fr) !important;
+  column-gap: 40px !important;
+  align-items: start !important;
+}
+.detailSection > .detailSectionContent { grid-column: 1 !important; grid-row: 1 !important; }
+.detailSection > .itemDetailsGroup     { grid-column: 1 !important; grid-row: 2 !important; }
+.detailSection > .trackSelections      { grid-column: 1 !important; grid-row: 3 !important; margin-top: 20px !important; }
+.detailSection > .nextUpSection {
+  grid-column: 3 !important;
+  grid-row: 1 / span 3 !important;
+  margin: 0 !important;
+  padding-top: 0 !important;
+}
+.detailSection > #listChildrenCollapsible,
+.detailSection > .collectionItems,
+.detailSection > .programGuideSection,
+.detailSection > #seriesTimerScheduleSection,
+.detailSection > .recordingFields {
+  grid-column: 1 / -1 !important;
+  margin-top: 30px !important;
+}
+#listChildrenCollapsible { padding: 0 !important; }
+.detailSection > #listChildrenCollapsible { margin-top: 60px !important; }
+
+/* ---------- poster (middle column) ---------- */
+.detailPagePrimaryContainer > .detailImageContainer,
+.detailImageContainer.hide-mobile { display: block !important; }
+.detailPagePrimaryContainer > .detailImageContainer {
+  position: absolute !important;
+  top: 300px !important;
+  left: calc(4vw + (100% - 8vw - 240px - 80px) / 2 + 40px) !important;
+  width: 240px !important;
+  margin: 0 !important;
+  z-index: 2 !important;
+}
+/* the inner card is hidden separately by Jellyfin */
+.detailPagePrimaryContainer > .detailImageContainer .card,
+.detailPagePrimaryContainer > .detailImageContainer .cardBox,
+.detailPagePrimaryContainer > .detailImageContainer .cardScalable,
+.detailPagePrimaryContainer > .detailImageContainer .cardImageContainer {
+  display: block !important;
+}
+.detailPagePrimaryContainer > .detailImageContainer .card {
+  width: 240px !important;
+  margin: 0 !important;
+}
+.detailPagePrimaryContainer > .detailImageContainer .cardImageContainer {
+  border-radius: 6px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.7);
+}
+
+/* ---------- Next Up ---------- */
+.nextUpSection .sectionTitle { margin: 0 0 10px 0 !important; line-height: 1.2 !important; }
+.nextUpItems .card { width: 100% !important; max-width: 720px !important; }
+.nextUpItems .cardText-first { font-size: 17px !important; margin-top: 10px !important; }
+
+/* ---------- metadata block ---------- */
+.detailSectionContent .overview {
+  max-width: 900px !important;
+  font-size: 18px !important;
+  line-height: 1.65 !important;
+}
+.itemDetailsGroup { margin-top: 22px !important; }
+.detailsGroupItem {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 14px !important;
+  margin-bottom: 10px !important;
+}
+.detailsGroupItem.hide { display: none !important; }
+.detailsGroupItem .label {
+  min-width: 90px !important;
+  width: auto !important;
+  font-size: 15px !important;
+  color: var(--txt-dim) !important;
+  font-weight: 400 !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.detailsGroupItem .content { font-size: 16px !important; }
+.detailsGroupItem .content a { color: var(--amber) !important; }
+.itemTags, .itemExternalLinks { font-size: 15px !important; margin: 14px 0 !important; }
