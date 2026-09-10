@@ -33,10 +33,6 @@
 .mainDetailButtons { gap: 10px !important; }
 .mainDetailButtons .detailButton { margin: 0 !important; }
 
-/* --- body: cap line length so text doesn't run the full 4K width --- */
-.detailPageContent, .detailPagePrimaryContent, .detailSection {
-  max-width: 1100px;
-}
 .detailPageContent .overview, .detailSectionContent > p, .itemOverview {
   font-size: 18px !important;
   line-height: 1.65 !important;
@@ -53,10 +49,4 @@
 /* --- media info selects --- */
 .selectContainer { max-width: 560px; }
 
-/* --- no giant poster once you're already inside the item --- */
-.detailImageContainer,
-.detailPagePrimaryContainer > .detailImageContainer,
-.detailImageContainer .card,
-.itemBackdrop + .detailImageContainer { display: none !important; }
-.detailPagePrimaryContent, .detailPageContent { margin-left: 0 !important; }
-.detailPageSecondaryContainer, .detailRibbon { padding-left: 4vw !important; }
+/* NOTE: the detail-page poster is handled in series.css, not here. */
