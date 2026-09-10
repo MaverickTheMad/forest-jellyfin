@@ -1,12 +1,14 @@
 /* buttons.css — Buttons and focus states.
    Part of the Forest/Netflix Jellyfin theme. */
 
-/* BUTTONS */
+/* BUTTONS
+   NOTE: ribbon detail buttons are styled in series.css. Do not put a
+   background on .detailButton-icon — it sizes each button to its icon. */
 
 .button-submit,
 .detailFloatingButton,
 .emby-button.raised.button-submit,
-.btnPlay, .detailButton-icon {
+.btnPlay {
   background: var(--accent) !important;
   color: #2A1204 !important;
   border-radius: 4px !important;
